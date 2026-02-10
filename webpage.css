@@ -152,16 +152,17 @@ header h1 {
   margin: 0;
   font-size: 23px;
   letter-spacing: 2px;
-  text-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
+  /* text-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3); */
   transition: 2s;
 }
 header h1 a {
   background: linear-gradient(90deg, #1e90ff, #901212, #ffffff);
-  -webkit-background-clip: text;
+  -webkit-background-clip:  text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   animation: gradientShift 2s ease infinite;
   text-decoration: underline;
+  color: white;
 }
 
 @keyframes gradientShift {
@@ -339,12 +340,13 @@ div {
   gap: 20px;
 }
 #services .box {
-  background-color: #fff;
+  background-color: #000000;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   cursor: pointer;
   width: 180px;
+  color:white;
   transition:
     transform 0.3s,
     box-shadow 0.3s;
