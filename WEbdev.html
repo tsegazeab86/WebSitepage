@@ -12,34 +12,67 @@
   <body>
     <!-- HEADER -->
     <header>
-      <h1><a href="#" target="_blank">Tsegazeab </a></h1>
-      <div class="header-actions">
+    <h1><a href="#" target="_blank">Tsegazeab</a></h1>
+    
+    <nav class="header-actions">
+      <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#project">Project</a></li>
         <li><a href="#contact">Contact</a></li>
-      </div>
-    </header>
+      </ul>
+    </nav>
+  </header>
+
+  
+
 
     <!-- HOME -->
 
-
-    <section class="hero">
-  <div class="tse">
-    <img src="/WebSitepage/images/tsegish.png" alt="Tsegazeab Logo" />
-  </div>
+   <section class="hero">
   <div class="herobg">
-    <h2>Welcome, <span id="username"></span>!</h2>
+    <h2>Welcome, <span id="username">To My Mini Website </span>!</h2>
     <h2>Enjoy your personalized experience</h2>
     <h4>Have a great day!</h4>
-    <p>
+    <p class="para">
       Explore your Tsegazeab Portal. Check your profile, view the latest
       news, and monitor your dashboard statistics in one place.
     </p>
+    <a href="#dashboard" class="cta-btn">Go to Dashboard</a>
   </div>
 </section>
 
+    <!-- about  -->
+    <!-- ABOUT PAGE/SECTION -->
+    <section class="about" id="about">
+      <div class="about-container">
+        <!-- Image on the left -->
+        <div class="about-image">
+          <img src="/WebSitepage/images/tsegish.png" alt="" />
+        </div>
+
+        <!-- Text on the right -->
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            Hi! I’m Tsega Zeab, a passionate web developer specializing in
+            creating clean, responsive, and user-friendly websites. I enjoy
+            building projects that are both functional and visually appealing.
+          </p>
+          <p>
+            My journey started with learning HTML, CSS, and JavaScript, and I’ve
+            been exploring full-stack development ever since. I love turning
+            ideas into real websites and interactive web applications.
+          </p>
+          <p>
+            When I’m not coding, I enjoy exploring new technologies, reading
+            about UI/UX design, and working on personal projects to improve my
+            skills.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- SERVICES -->
     <section id="services">
@@ -84,10 +117,19 @@
           <p>
             A simple login page built with HTML and CSS that includes input
             fields for username and password with basic form validation and a
-            clean, responsive layout. and get other page for more interaction.
-            and also it is linked to other pages.
           </p>
           <a href="loginpage.html" target="_blank">View Project</a>
+        </div>
+
+        <div class="box">
+          <h3 class="headerforproject">Squarespace Website</h3>
+          <p>
+            A simple login page built with HTML and CSS. It includes input
+            fields for username and password, basic form validation, and a
+          </p>
+          <a href="https://tsegaezeab.mystrikingly.com/1" target="_blank">
+            Visit Project
+          </a>
         </div>
 
         <div class="box">
@@ -95,19 +137,15 @@
           <p>
             A simple music player built with HTML, CSS, and JavaScript that
             allows users to play, pause, and switch between audio tracks. It
-            features a clean interface and basic playback controls for an
-            enjoyable listening experience.
           </p>
           <a href="music/music.html" target="_blank">View Project</a>
         </div>
 
         <div class="box">
-          <h3  class="headerforproject">Snake Game</h3>
+          <h3 class="headerforproject">Snake Game</h3>
           <p>
             A classic Snake Game developed using JavaScript where the player
             controls the snake to collect food, grow in length, and avoid
-             tracking and smooth keyboard controls for an engaging gameplay
-            experience. the rows up down right and left
           </p>
           <a href="https://snake-gameapps.netlify.app/" target="_blank"
             >View Project</a
@@ -119,8 +157,7 @@
             A simple calculator built with HTML, CSS, and JavaScript that
             performs basic arithmetic operations such as addition, subtraction,
             multiplication, and division. It features a clean user interface and
-             devices. that meanss you can 
-           </p>
+          </p>
           <a href="calculator/calculater.html" target="_blank">View Project</a>
         </div>
         <div class="box">
@@ -172,7 +209,10 @@
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com" target="_blank">
+              <a
+                href="https://www.youtube.com/watch?v=_4ey5Ta6QH4"
+                target="_blank"
+              >
                 <i class="bx bxl-youtube"></i>
               </a>
             </li>
