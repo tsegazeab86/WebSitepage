@@ -42,3 +42,29 @@ window.addEventListener("click", (e) => {
     modal.style.display = "none";
   }
 });
+const viewMore = document.getElementById("viewMore");
+const popup = document.getElementById("popup");
+const closePopup = document.getElementById("closePopup");
+
+// Open modal
+viewMore.addEventListener("click", function (e) {
+  e.preventDefault();
+  popup.classList.add("show");
+});
+
+// Close modal
+closePopup.addEventListener("click", function () {
+  popup.classList.remove("show");
+});
+
+// Close when clicking outside modal-box
+window.addEventListener("click", function (e) {
+  if (e.target === popup) {
+    popup.classList.remove("show");
+  }
+});
+
+
+  window.addEventListener('load', function() {
+    document.getElementById('viewProject').click();
+  });
