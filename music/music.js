@@ -43,7 +43,7 @@ const music_list = [
     img: "images/ratherbe.jpg",
     name: "Rather Be",
     artist: "Degemew",
-    music: "m.mp3",
+    music: "6.mp3",
   },
 ];
 
