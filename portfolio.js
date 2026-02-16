@@ -1,7 +1,7 @@
-const form = document.getElementById("formid");
-const error = document.getElementById("errordisaply");
-const fname = document.getElementById("fullname");
-const email = document.getElementById("email");
+const form = doc.getElementById("formid");
+const error = doc.getElementById("errordisaply");
+const fname = doc.getElementById("fullname");
+const email = doc.getElementById("email");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault(); // stop form refresh
@@ -11,11 +11,11 @@ form.addEventListener("submit", function (e) {
   if (fname.value.trim() === "" || email.value.trim() === "") {
     error.textContent = "Please fill required fields";
     error.style.color = "red";
-     // return;
+    // return;
   } else {
     // if everything is ok
     error.textContent = "Form submitted successfully ✅";
     error.style.color = "green";
-   }
+  }
   form.reset();
 });

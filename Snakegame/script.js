@@ -1,4 +1,4 @@
-const canvas = document.querySelector(".canvas");
+const canvas = doc.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
 
 const scale = 10;
@@ -38,7 +38,7 @@ document.onkeydown = function (event) {
   if (key === 32) {
     // Space = pause
     paused = !paused;
-    
+
     return;
   }
   if (key === 37 && d !== "RIGHT") d = "LEFT";

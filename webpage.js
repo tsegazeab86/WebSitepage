@@ -1,5 +1,3 @@
-// Add this to your existing JavaScript file or in a <script> tag
-
 //home section
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function type() {
     const currentItem = typedItems[itemIndex];
-
     if (isDeleting) {
       // Remove character
       typedTextElement.textContent = currentItem.substring(0, charIndex - 1);
@@ -31,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       isEnd = true;
       isDeleting = true;
       // Pause at the end of the word
-      setTimeout(type, 1500);
+      setTimeout(type, 2000);
       return;
     }
 
@@ -46,22 +43,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Pause before starting next word
-      setTimeout(type, 500);
+      setTimeout(type, 50);
       return;
     }
 
-    // Set typing speed
     const typeSpeed = isDeleting ? 50 : 100;
     // Randomize speed slightly for more natural feel
     const randomSpeed = Math.random() * 50 + typeSpeed;
 
     setTimeout(type, randomSpeed);
   }
-
-  // Start the typing animation immediately
   type();
 
-  // Social links hover effect
   const socialLinks = document.querySelectorAll(".social-link");
   socialLinks.forEach((link) => {
     link.addEventListener("mouseenter", function () {
@@ -85,94 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.transform = "scale(1.03)";
       this.style.boxShadow = "0 0 40px rgba(204, 204, 204, 0.6)";
     }, 300);
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector(".header");
-  const mobileToggle = document.querySelector(".mobile-toggle");
-  const mobileNav = document.querySelector(".mobile-nav");
-  const progressBar = document.querySelector(".progress-bar");
-  const mobileLinks = document.querySelectorAll(".mobile-link");
-
-  // Mobile menu toggle
-  mobileToggle.addEventListener("click", function () {
-    const isExpanded = this.getAttribute("aria-expanded") === "true";
-    this.setAttribute("aria-expanded", !isExpanded);
-    mobileNav.classList.toggle("active");
-    mobileNav.setAttribute("aria-hidden", isExpanded);
-
-    // Toggle body scroll
-    document.body.style.overflow = isExpanded ? "" : "hidden";
-  });
-
-  // Close mobile menu when clicking links
-  mobileLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      mobileToggle.setAttribute("aria-expanded", "false");
-      mobileNav.classList.remove("active");
-      mobileNav.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    });
-  });
-
-  // Header scroll effect
-  window.addEventListener("scroll", function () {
-    // Add scrolled class
-    if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
-    // Update progress bar
-    const winHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (window.scrollY / winHeight) * 100;
-    progressBar.style.width = `${scrolled}%`;
-  });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-
-  // Active link highlighting
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-link, .mobile-link");
-
-  window.addEventListener("scroll", function () {
-    let current = "";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-
-      if (scrollY >= sectionTop - 150) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      const href = link.getAttribute("href");
-      if (href === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
   });
 });
 
@@ -208,7 +113,30 @@ window.addEventListener("scroll", function () {
   }
   lastScroll = window.scrollY;
 });
+
 // Contact form submission
+// const name = document.getElementById("name");
+// const email = document.getElementById("email");
+// const message = document.getElementById("message");
+// const formMessage = document.getElementById("formMessage");
+
+// function handlesubmit() {
+//   e.preventDefault();
+//   if (email.value.length===0 || message.value.length===0 ) {
+//     formMessage.textContent = "Please fill   all required fields.";
+//     formMessage.style.backgroundColor = "red";
+//     formMessage.style.color = "white";
+//     formMessage.innerHTML = "hello world";
+//     return;
+//   }
+//   formMessage.textContent = "Message sent successfully!";
+//   formMessage.style.color = "green";
+//   formMessage.style.fontSize = "24px";
+//   formMessage.style.backgroundColor = "aqua";
+//   this.reset();
+// };
+// formMessage.addEventListener("submit", handlesubmit());
+
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
@@ -217,13 +145,18 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const formMessage = document.getElementById("formMessage");
 
   if (!name || !email || !message) {
-    formMessage.textContent = "Please fill in all fields.";
-    formMessage.style.color = "red";
+    formMessage.textContent = "Please fill   all required fields.";
+    formMessage.style.backgroundColor = "red";
+    formMessage.style.color="white";
+    formMessage.style.border="red 1px solid"
+    formMessage.innerHTML="hello world";
     return;
   }
-
   formMessage.textContent = "Message sent successfully!";
   formMessage.style.color = "green";
+  formMessage.style.fontSize="24px";
+  formMessage.style.border="4px yellow solid"
+  formMessage.style.backgroundColor="aqua"
   this.reset();
 });
 
@@ -252,25 +185,6 @@ window.addEventListener("click", (e) => {
     modal.style.display = "none";
   }
 });
-const viewMore = document.getElementById("viewMore");
-const popup = document.getElementById("popup");
-const closePopup = document.getElementById("closePopup");
-
-viewMore.addEventListener("click", function (e) {
-  e.preventDefault();
-  popup.style.display = "flex";
-});
-
-closePopup.addEventListener("click", function () {
-  popup.style.display = "none";
-});
-
-popup.addEventListener("click", function (e) {
-  if (e.target === popup) {
-    popup.style.display = "none";
-  }
-});
-
 // servixes
 // Add hover animation to service cards
 document.querySelectorAll(".service-card").forEach((card) => {
@@ -343,7 +257,7 @@ filterButtons.forEach((button) => {
 });
 
 // Project Modal
-// const modal = document.getElementById('projectModal');
+// const modal =document.getElementById('projectModal');
 const modalClose = document.querySelector(".modal-close");
 const modalBody = document.querySelector(".modal-body");
 const infoButtons = document.querySelectorAll(".project-info-btn");
