@@ -1,0 +1,226 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --primary: #3b82f6;
+  --accent: #22d3ee;
+  --text: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* LOADER */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-circle {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--card);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* HEADER */
+.header {
+  padding: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 1000;
+}
+
+.header .logo {
+  font-size: 24px;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero p {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 10%;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  display: block;
+  margin: 10px auto;
+}
+
+/* GRID CARDS */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* SKILLS */
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill-title {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.progress {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 0;
+  background: var(--primary);
+  transition: width 1.5s ease;
+}
+
+/* CONTACT FORM */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: var(--card);
+  border: none;
+  color: var(--text);
+  border-radius: 5px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact-form p {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content span {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--card);
+}
+footer .socials a {
+  margin: 0 10px;
+  color: var(--text);
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+footer .socials a:hover {
+  color: var(--primary);
+}

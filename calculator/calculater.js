@@ -1,5 +1,5 @@
 // Get the display element
-var display = doc.getElementById("display");
+var display = document.getElementById("display");
 
 // Append a number or operator to the display
 function appendToDisplay(input) {

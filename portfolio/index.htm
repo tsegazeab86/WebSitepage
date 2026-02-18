@@ -1,281 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Advanced House Renting</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- Loader --- */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .loader-circle {
+      border: 5px solid #ccc;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f4f4f4;
-}
+    /* --- Dark mode --- */
+    body.dark { background: #121212; color: #eee; }
+    body.dark .card { background: #1e1e1e; }
 
-header{
-  background:#0073e6;
-  color:rgb(206, 0, 0);
-  padding:15px;
-  text-align:center;
-}
+    /* --- Basic styling --- */
+    body { font-family: Arial, sans-serif; margin:0; }
+    .header { position: fixed; width:100%; background:#fff; display:flex; justify-content:space-between; padding:15px; z-index:10; transition:0.3s; }
+    body.dark .header { background:#1e1e1e; }
+    .container { width:90%; margin:auto; }
+    .section { padding:100px 0; }
+    .section-title { font-size:2rem; margin-bottom:20px; }
+    .btn { padding:10px 20px; background:#3498db; color:#fff; border:none; cursor:pointer; border-radius:5px; text-decoration:none; }
+    body.dark .btn { background:#0d6efd; }
 
-nav{
-  background:#34495e;
-  padding:10px;
-  text-align:center;
-}
+    /* --- Skills --- */
+    .skill { margin-bottom:15px; }
+    .skill-title { margin-bottom:5px; }
+    .progress { width:100%; background:#ddd; height:20px; border-radius:10px; overflow:hidden; }
+    .progress-bar { width:0; height:100%; background:#3498db; transition:width 1s; }
 
-nav button{
-  padding:8px 15px;
-  margin:5px;
-  border:none;
-  cursor:pointer;
-}
+    /* --- Cards / Projects --- */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .card { background:#fff; padding:20px; border-radius:10px; opacity:0; transform:translateY(50px); transition:all 0.6s; }
+    .card.show { opacity:1; transform:translateY(0); }
+    body.dark .card { background:#1e1e1e; }
 
-.container{
-  padding:20px;
-}
+    /* --- Modal --- */
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; z-index:20; }
+    .modal-content { background:#fff; padding:20px; border-radius:10px; max-width:500px; width:90%; position:relative; }
+    #closeModal { position:absolute; top:10px; right:15px; cursor:pointer; font-size:1.5rem; }
+    body.dark .modal-content { background:#2c2c2c; color:#eee; }
 
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:20px;
-}
+    /* --- Contact form --- */
+    .contact-form { display:flex; flex-direction:column; gap:10px; }
+    .contact-form input, .contact-form textarea { padding:10px; border-radius:5px; border:1px solid #ccc; width:100%; }
+    .contact-form button { width:150px; }
+    #formMessage { margin-top:10px; padding:10px; border-radius:5px; }
 
-.filters input, .filters select{
-  padding:8px;
-}
-
-.houses{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.house{
-  background:white;
-  padding:10px;
-  border-radius:8px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.2);
-}
-
-.house img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:5px;
-}
-
-.price{
-  color:green;
-  font-weight:bold;
-}
-
-button{
-  padding:6px 10px;
-  margin-top:5px;
-  cursor:pointer;
-}
-
-.modal{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  justify-content:center;
-  align-items:center;
-}
-
-.modal-content{
-  background:white;
-  padding:20px;
-  width:300px;
-  border-radius:8px;
-}
-
-.admin{
-  display:none;
-  margin-top:20px;
-  background:white;
-  padding:20px;
-  border-radius:8px;
-}
-</style>
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>🏠 Advanced House Renting Website</h1>
-</header>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-circle"></div>
+  </div>
 
-<nav>
-<button onclick="showLogin()">Login</button>
-<button onclick="logout()">Logout</button>
-</nav>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <h2 class="logo">YourName</h2>
+      <button id="themeToggle">🌙</button>
+    </div>
+  </header>
 
-<div class="container">
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="container hero-content">
+      <h1>Hello, I'm <span>Your Name</span></h1>
+      <p id="typed-text"></p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
 
-<div class="filters">
-<input type="text" id="searchCity" placeholder="City">
-<input type="number" id="maxPrice" placeholder="Max Price">
-<select id="bedrooms">
-<option value="">Bedrooms</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-</select>
-<button onclick="filterHouses()">Filter</button>
-</div>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>I am a passionate CS student focused on building modern web applications.</p>
+    </div>
+  </section>
 
-<div class="houses" id="houseList">
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skill"><div class="skill-title">HTML</div><div class="progress"><div class="progress-bar" data-width="95%"></div></div></div>
+      <div class="skill"><div class="skill-title">CSS</div><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+      <div class="skill"><div class="skill-title">JavaScript</div><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+    </div>
+  </section>
 
-<div class="house" data-city="Addis" data-price="10000" data-bed="2">
-<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
-<h3>Modern Apartment</h3>
-<p>City: Addis</p>
-<p>Bedrooms: 2</p>
-<p class="price">10,000 ETB</p>
-<button onclick="openModal()">Contact Landlord</button>
-</div>
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+        <div class="card" data-title="Calculator" data-desc="Fully functional calculator built with JavaScript.">
+          <h3>Calculator</h3>
+          <button class="open-modal">View Details</button>
+        </div>
+        <div class="card" data-title="Snake Game" data-desc="Classic snake game with HTML5 Canvas.">
+          <h3>Snake Game</h3>
+          <button class="open-modal">View Details</button>
+        </div>
+        <div class="card" data-title="Music Player" data-desc="Modern music player with playlist controls.">
+          <h3>Music Player</h3>
+          <button class="open-modal">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="house" data-city="Adama" data-price="8000" data-bed="3">
-<img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
-<h3>Family House</h3>
-<p>City: Adama</p>
-<p>Bedrooms: 3</p>
-<p class="price">8,000 ETB</p>
-<button onclick="openModal()">Contact Landlord</button>
-</div>
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+        <p id="formMessage"></p>
+      </form>
+    </div>
+  </section>
 
-<div class="house" data-city="Bahir Dar" data-price="15000" data-bed="1">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<h3>Luxury Villa</h3>
-<p>City: Bahir Dar</p>
-<p>Bedrooms: 1</p>
-<p class="price">15,000 ETB</p>
-<button onclick="openModal()">Contact Landlord</button>
-</div>
+  <!-- PROJECT MODAL -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
 
-</div>
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
 
-<!-- ADMIN DASHBOARD -->
-<div class="admin" id="adminPanel">
-<h2>Admin Dashboard</h2>
-<input type="text" id="newCity" placeholder="City"><br><br>
-<input type="number" id="newPrice" placeholder="Price"><br><br>
-<input type="number" id="newBed" placeholder="Bedrooms"><br><br>
-<input type="text" id="newImage" placeholder="Image URL"><br><br>
-<button onclick="addHouse()">Add House</button>
-</div>
+    // --- Loader ---
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      if(loader) loader.style.display = "none";
+    });
 
-</div>
+    // --- Typing animation ---
+    const typedText = document.getElementById("typed-text");
+    const words = ["CS Student","Frontend Developer","Web Designer"];
+    let wIndex = 0, cIndex = 0, deleting = false;
+    function typeEffect() {
+      if(!typedText) return;
+      let word = words[wIndex];
+      if(deleting) typedText.textContent = word.substring(0, cIndex--);
+      else typedText.textContent = word.substring(0, cIndex++);
+      if(!deleting && cIndex === word.length) { deleting = true; setTimeout(typeEffect, 1000); return; }
+      if(deleting && cIndex === 0) { deleting = false; wIndex=(wIndex+1)%words.length; }
+      setTimeout(typeEffect, deleting?50:100);
+    }
+    typeEffect();
 
-<!-- CONTACT MODAL -->
-<div class="modal" id="contactModal">
-<div class="modal-content">
-<h3>Contact Landlord</h3>
-<p>Phone: 0912345678</p>
-<button onclick="closeModal()">Close</button>
-</div>
-</div>
+    // --- Dark mode ---
+    const themeToggle = document.getElementById("themeToggle");
+    if(themeToggle) themeToggle.addEventListener("click",()=>document.body.classList.toggle("dark"));
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
-<div class="modal-content">
-<h3>Admin Login</h3>
-<input type="text" id="username" placeholder="Username"><br><br>
-<input type="password" id="password" placeholder="Password"><br><br>
-<button onclick="login()">Login</button>
-<button onclick="closeLogin()">Close</button>
-</div>
-</div>
+    // --- Scroll reveal ---
+    const cards = document.querySelectorAll(".card");
+    const cardObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add("show");
+      });
+    },{threshold:0.2});
+    cards.forEach(c=>cardObserver.observe(c));
 
-<script>
+    // --- Skill bars ---
+    const bars = document.querySelectorAll(".progress-bar");
+    const skillObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.style.width = entry.target.dataset.width;
+      });
+    },{threshold:0.5});
+    bars.forEach(b=>skillObserver.observe(b));
 
-function filterHouses(){
-let city=document.getElementById("searchCity").value.toLowerCase();
-let maxPrice=document.getElementById("maxPrice").value;
-let bed=document.getElementById("bedrooms").value;
-let houses=document.getElementsByClassName("house");
+    // --- Project modal ---
+    const projectModal = document.getElementById("projectModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const closeModal = document.getElementById("closeModal");
+    document.querySelectorAll(".open-modal").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const card = btn.parentElement;
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+        projectModal.style.display = "flex";
+        document.body.style.overflow="hidden";
+      });
+    });
+    if(closeModal) closeModal.addEventListener("click",()=>{
+      projectModal.style.display="none";
+      document.body.style.overflow="auto";
+    });
+    window.addEventListener("click", e=>{
+      if(e.target===projectModal){ projectModal.style.display="none"; document.body.style.overflow="auto"; }
+    });
 
-for(let house of houses){
-let houseCity=house.getAttribute("data-city").toLowerCase();
-let housePrice=house.getAttribute("data-price");
-let houseBed=house.getAttribute("data-bed");
+    // --- EmailJS Contact Form ---
+    if(typeof emailjs!=="undefined"){
+      emailjs.init("jvC2s8tA-LE6u-zDU"); // <-- Replace with your key
+    }
 
-if(
-(houseCity.includes(city) || city==="") &&
-(housePrice<=maxPrice || maxPrice==="") &&
-(houseBed===bed || bed==="")
-){
-house.style.display="block";
-}else{
-house.style.display="none";
-}
-}
-}
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+    if(contactForm && formMessage && typeof emailjs!=="undefined"){
+      contactForm.addEventListener("submit", function(e){
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        if(!name || !email || !message){
+          formMessage.textContent="Please fill in all required fields.";
+          formMessage.style.color="white"; formMessage.style.backgroundColor="red";
+          return;
+        }
+        const submitBtn = contactForm.querySelector("button");
+        submitBtn.disabled=true; submitBtn.textContent="Sending...";
+        emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{from_name:name,from_email:email,message:message})
+        .then(()=>{ 
+          formMessage.textContent="Message sent successfully!";
+          formMessage.style.color="white"; formMessage.style.backgroundColor="green";
+          contactForm.reset();
+          submitBtn.disabled=false; submitBtn.textContent="Send Message";
+        })
+        .catch(err=>{
+          console.error("EmailJS Error:",err);
+          formMessage.textContent="Failed to send message. Please try again later.";
+          formMessage.style.color="white"; formMessage.style.backgroundColor="red";
+          submitBtn.disabled=false; submitBtn.textContent="Send Message";
+        });
+      });
+    }
 
-function openModal(){
-document.getElementById("contactModal").style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("contactModal").style.display="none";
-}
-
-function showLogin(){
-document.getElementById("loginModal").style.display="flex";
-}
-
-function closeLogin(){
-document.getElementById("loginModal").style.display="none";
-}
-
-function login(){
-let user=document.getElementById("username").value;
-let pass=document.getElementById("password").value;
-
-if(user==="admin" && pass==="1234"){
-alert("Login Successful");
-document.getElementById("adminPanel").style.display="block";
-closeLogin();
-}else{
-alert("Wrong Credentials");
-}
-}
-
-function logout(){
-document.getElementById("adminPanel").style.display="none";
-alert("Logged out");
-}
-
-function addHouse(){
-let city=document.getElementById("newCity").value;
-let price=document.getElementById("newPrice").value;
-let bed=document.getElementById("newBed").value;
-let image=document.getElementById("newImage").value;
-
-let newHouse=`
-<div class="house" data-city="${city}" data-price="${price}" data-bed="${bed}">
-<img src="${image}">
-<h3>New House</h3>
-<p>City: ${city}</p>
-<p>Bedrooms: ${bed}</p>
-<p class="price">${price} ETB</p>
-<button onclick="openModal()">Contact Landlord</button>
-</div>
-`;
-
-document.getElementById("houseList").innerHTML+=newHouse;
-alert("House Added Successfully");
-}
-
-</script>
-
+  });
+  </script>
 </body>
 </html>
