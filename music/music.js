@@ -22,7 +22,7 @@ let updateTimer;
 
 const music_list = [
   {
-    img: "images/stay.png",
+    img: "",
     name: "Stay",
     artist: "The Kid LAROI, Justin Bieber",
     music: "4.mp3",
@@ -40,8 +40,7 @@ const music_list = [
     music: "music/Faded.mp3",
   },
   {
-    img: "images/ratherbe.jpg",
-    name: "Rather Be",
+     name: "Rather Be",
     artist: "Degemew",
     music: "6.mp3",
   },

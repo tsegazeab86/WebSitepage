@@ -19,7 +19,7 @@ body {
   --shadow: 0 10px 30px hsla(183, 100%, 50%, 0.1);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
- 
+
 /* ===== HEADER BASE ===== */
 .header {
   background: white;
@@ -1810,8 +1810,7 @@ body {
     justify-content: center;
   }
 }
-/* CONTACT */
-/* Contact Section */
+ /* Contact Section */
 #contact {
   padding: 80px 20px;
   max-width: 1200px;
@@ -1878,7 +1877,6 @@ body {
 .map-container:hover iframe {
   transform: scale(1.01);
 }
-
 
 /* Links */
 .map-link,
@@ -1980,7 +1978,6 @@ body {
 .submit-btn:active {
   transform: translateY(-1px);
 }
- 
 
 /* Form Message */
 #formMessage {
@@ -2051,6 +2048,8 @@ body {
     height: 200px;
   }
 }
+
+
 /* Footer Styles */
 .footer {
   background: linear-gradient(135deg, #1e293b 0%, #5470b3 100%);

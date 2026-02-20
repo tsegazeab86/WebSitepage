@@ -1,18 +1,14 @@
-// Get the display element
-var display = document.getElementById("display");
+ var display = document.getElementById("display");
 
-// Append a number or operator to the display
-function appendToDisplay(input) {
+ function appendToDisplay(input) {
   display.value += input;
 }
 
-// Clear the display completely
-function clearDisplay() {
+ function clearDisplay() {
   display.value = "";
 }
 
-// Calculate the expression in the display
-function calculate() {
+ function calculate() {
   try {
     display.value = eval(display.value);
   } catch (error) {

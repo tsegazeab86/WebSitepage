@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==================== CONTACT FORM ====================
   const contactForm = document.getElementById("contact-Form");
   if (contactForm) {
-      emailjs.init("PASTE_YOUR_REAL_PUBLIC_KEY_HERE");
+    emailjs.init("PASTE_YOUR_REAL_PUBLIC_KEY_HERE");
 
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
