@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment variables (ሚስጥራዊ keys)
+.env
+.env.local
+.env.*.local
+functions/.env
+
+# Build output
+dist/
+build/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.runtimeconfig.json
+
+# Logs
+npm-debug.log*
+*.log
+
+# Editor / OS files
+.vscode/
+.DS_Store
+Thumbs.db

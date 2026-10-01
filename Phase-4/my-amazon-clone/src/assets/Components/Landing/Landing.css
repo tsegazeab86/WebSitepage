@@ -1,0 +1,13 @@
+.landing__container {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #eaeded;
+  min-height: 100vh;
+}
+.landing__headerSticky {
+  position: -webkit-sticky; /* ለ Safari ብራውዘር */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* ከ Carousel እና እቃዎች በላይ ሆኖ እንዲታይ */
+  width: 100%;
+}

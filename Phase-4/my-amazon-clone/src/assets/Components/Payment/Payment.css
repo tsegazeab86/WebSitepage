@@ -1,0 +1,207 @@
+/* ==========================================
+   Payment Page Layout & Base Styles
+========================================== */
+.payment {
+  background-color: #f3f3f3;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+.payment__header {
+  padding: 15px;
+  text-align: center;
+  background-color: #eaeded;
+  border-bottom: 1px solid #d5d9d9;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.payment__header h1 {
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.payment__header a {
+  text-decoration: none;
+  color: #007185;
+}
+
+.payment__header a:hover {
+  text-decoration: underline;
+  color: #c7511f;
+}
+
+/* ==========================================
+   Container & Flex Sections
+========================================== */
+.payment__container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 20px 30px;
+}
+
+.payment__section {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.payment__title {
+  flex: 0.2;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.payment__address,
+.payment__items,
+.payment__details {
+  flex: 0.8;
+}
+
+.payment__address p {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ==========================================
+   Product List Review Section
+========================================== */
+.payment__items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment__product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.payment__product img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.payment__productInfo h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.payment__productInfo p {
+  font-size: 14px;
+  color: #565959;
+}
+
+/* ==========================================
+   Stripe Elements & Checkout Form
+========================================== */
+.payment__details form {
+  max-width: 450px;
+}
+
+/* Stripe CardElement Container Styling */
+.StripeElement {
+  padding: 12px 16px;
+  border: 1px solid #a6a6a6;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(15, 17, 17, 0.15) inset;
+  margin-bottom: 15px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.StripeElement--focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+}
+
+.payment__priceContainer {
+  margin-top: 15px;
+}
+
+.payment__priceContainer h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.payment__details button {
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 20px;
+  width: 100%;
+  height: 40px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment__details button:hover {
+  background: #f7ca00;
+  border-color: #f2c200;
+}
+
+.payment__details button:disabled {
+  background-color: #e7e9ec;
+  border-color: #adb1b8;
+  color: #8d9096;
+  cursor: not-allowed;
+}
+
+.payment__loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment__error {
+  color: #c40000;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* ==========================================
+   Responsive Styling (Mobile & Tablet)
+========================================== */
+@media (max-width: 768px) {
+  .payment__container {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .payment__section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment__title {
+    margin-bottom: 5px;
+  }
+
+  .payment__details form {
+    max-width: 100%;
+  }
+
+  .payment__product {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

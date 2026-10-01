@@ -1,0 +1,80 @@
+.orders__container {
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.orders__container h2 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.orders__empty {
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.order__card {
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.order__header {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.order__id {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.order__date {
+  color: #888;
+}
+
+.order__items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px dashed #efefef;
+  padding-bottom: 10px;
+}
+
+.order__image {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.order__itemDetails h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.order__itemDetails p {
+  margin: 2px 0;
+  color: #444;
+}
+
+.order__total {
+  text-align: right;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #111;
+}

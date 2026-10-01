@@ -1,0 +1,17 @@
+.hero__img {
+  height: 250px;
+  width: 100%;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  margin-bottom: -150px;
+  position: relative;
+  z-index: 1;
+}
+
+/* responsive ማስተካከያ */
+@media only screen and (max-width: 768px) {
+  .hero__img {
+    height: 100px;
+    margin-bottom: -50px;
+  }
+}
